@@ -1,0 +1,12 @@
+API - Laravel
+
+https://candied-gooseberry-205.notion.site/Criando-API-REST-com-Laravel-9-606573f493e9494b9b7abc7ac1298828
+
+composer create-project laravel/laravel example-app(biblia)
+php artisan migrate (pega as sessões e outros recursos a partir das migrações)
+php artisan serve (roda o servidor local, TEM Q SER NA PASTA DO PROJETO)
+
+BD:
+Create database biblia
+utf8mb4
+utf8mb4_general_ci
