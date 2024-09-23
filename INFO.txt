@@ -1,0 +1,3 @@
+API - Laravel
+
+https://candied-gooseberry-205.notion.site/Criando-API-REST-com-Laravel-9-606573f493e9494b9b7abc7ac1298828
