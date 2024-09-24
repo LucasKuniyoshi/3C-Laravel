@@ -6,7 +6,24 @@ composer create-project laravel/laravel example-app(biblia)
 php artisan migrate (pega as sessões e outros recursos a partir das migrações)
 php artisan serve (roda o servidor local, TEM Q SER NA PASTA DO PROJETO)
 
+===========================
 BD:
 Create database biblia
 utf8mb4
 utf8mb4_general_ci
+===========================
+
+php artisan make:model Testamento --migration (CRIA UMA NOVA MODEL "TESTAMENTO")
+
+php artisan migrate (NO Q A ESTRUTURA DAS TABELAS SÃO CRIADAS AQUI, ESSE COMANDO ENVIA SUAS DEFINIÇÕES PARA O BANCO SQLyog) 
+
+php artisan make:controller TestamentoController --api (CRIA A CONTROLER TestamentoController NA API)
+
+FRAMEWORK - estrutura de código pronto, q vc pode trabalhar em cima dela
+============================
+NO INSOMNIA:
+
+MANAGER ENVIRONMENT
+{
+	"base_url": "http://127.0.0.1:8000/"
+}
