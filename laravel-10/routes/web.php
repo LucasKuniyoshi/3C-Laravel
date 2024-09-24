@@ -5,10 +5,15 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Site\SiteController;
 use Illuminate\Support\Facades\Route;
 
+// Route::get('/contato', function(){
+//     return view('site/contact');
+// });
+
+//get(URL, "ação => chama a função contact la da classe SiteController")
 Route::get('/contato', [SiteController::class, 'contact']);
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome'); //retorna a welcome.blade.php
 });
 
 Route::get('/dashboard', function () {

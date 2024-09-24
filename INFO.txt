@@ -27,3 +27,22 @@ MANAGER ENVIRONMENT
 {
 	"base_url": "http://127.0.0.1:8000/"
 }
+
+========================================
+NO PROJETO LARAVEL-10: (curso do youtube)
+
+Abrir o docker desktop
+rodar na linha de comendo do projeto:
+docker-compose up -d
+docker-compose exec app bash
+
+composer install
+php artisan key:generate (CRIA AS CHAVES DE CRIPTOGRAFIA NO .ENV, TOKENS)
+
+C:\xampp\htdocs\curso_php\API_Laravel\laravel-10>rm -rf .git
+rm -rf .git => PERMITE Q OS DADOS DO BANCO N SEJAM PERDIDOS AO DESLIGAR OU REINICIAR A MÁQUINA
+
+docker ps - VÊ TODOS AS APLICAÇÕES Q ESTÃO RODANDO EM DOCKER
+
+=====================================
+bootstrap - da o start na aplicação em si

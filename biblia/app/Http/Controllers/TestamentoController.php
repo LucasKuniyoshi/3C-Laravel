@@ -21,6 +21,7 @@ class TestamentoController extends Controller
     //CREATE
     public function store(Request $request)
     {
+        //tudo q trouxer na requisição, vai inserir no banco
         return Testamento::create($request->all());
 
     }
