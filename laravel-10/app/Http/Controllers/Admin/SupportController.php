@@ -18,6 +18,7 @@ class SupportController extends Controller
 
     public function index(Request $request)
     {
+        // $support = $this->service->getAll($request->filter);
         $supports = $this->service->paginate(
             page: $request->get('page', 1),
             totalPerPage: $request->get('per_page', 6),
@@ -26,18 +27,20 @@ class SupportController extends Controller
 
         $filters = ['filter' => $request->get('filter', '')];
 
-        return view('admin/supports/index', compact('supports', 'filters'));
+        //RETORNA TUDO Q TA NO BANCO, "além de utilizar filtro tbm"
+        return view('admin/supports/index', compact('supports', 'filters')); //compact => array q armazena todos os dados de supports
     }
 
-    public function show(string $id)
+    public function show(string $id) //show(string|int $id), string ou inteiro
     {
-        // Support::find($id)
+        // Support::find($id) //recupera um item pelo ID
         // Support::where('id', $id)->first();
         // Support::where('id', '!=', $id)->first();
         if (!$support = $this->service->findOne($id)) {
+            //SE N ENCONTROU NADA, REDIRECIONA O USER PARA A PAGINA ANTERIOR
             return back();
         }
-
+        //redireciona para a pagina, manda com os dados adquiridos aqui
         return view('admin/supports/show', compact('support'));
     }
 
@@ -48,8 +51,13 @@ class SupportController extends Controller
 
     public function store(StoreUpdateSupport $request, Support $support)
     {
+        // $data = $request->validated();
+        // $data['status'] = 'a';
+
+        // $support->create($data);
+
         $this->service->new(
-            CreateSupportDTO::makeFromRequest($request)
+            CreateSupportDTO::makeFromRequest($request) //CHAMA O MÉTODO ESTTÁTICO, OS DADOS CRIADOS SÃO ARMAZENADOS EM FORMATO DTO
         );
 
         return redirect()
@@ -69,6 +77,12 @@ class SupportController extends Controller
 
     public function update(StoreUpdateSupport $request, Support $support, string $id)
     {
+        // $support->update($request->only([
+        //     'subject', 'body'
+        // ]));
+
+        // $support->update($request->validated());
+
         $support = $this->service->update(
             UpdateSupportDTO::makeFromRequest($request),
         );

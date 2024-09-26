@@ -39,6 +39,8 @@ docker-compose exec app bash
 composer install
 php artisan key:generate (CRIA AS CHAVES DE CRIPTOGRAFIA NO .ENV, TOKENS)
 
+php artisan make:request StoreUpdateSupportRequest (CRIA UM CONTROLLER PARA TER TODAS AS SUAS VALIDAÇÕES CENTRALIZADAS, "n precisa mais usar Request $request")
+
 C:\xampp\htdocs\curso_php\API_Laravel\laravel-10>rm -rf .git
 rm -rf .git => PERMITE Q OS DADOS DO BANCO N SEJAM PERDIDOS AO DESLIGAR OU REINICIAR A MÁQUINA
 
@@ -46,3 +48,35 @@ docker ps - VÊ TODOS AS APLICAÇÕES Q ESTÃO RODANDO EM DOCKER
 
 =====================================
 bootstrap - da o start na aplicação em si
+
+php artisan make:controller Admin\\SupportController (cria a controller SupportController na pasta Admin)
+
+php artisan make:model Support -mc ("-m" já cria o arquivo de migration, "c" cria a controller)
+
+php artisan migrate => atualiza as tabelas criadas
+
+=======================================
+NO HTML (blade);
+@csrf() => gera um token pra cada submit realizado, "seguranca";
+
+<table>
+	<thead> "head da tabela"
+	<tbody> "body da tabela
+
+	<tbody>
+		@foreach($supports as $support) //loop q vai ler todos os dados do banco
+		<tr> // "row" da tabela
+			<td>{{$support->subject}}</td> //td => dado da linha
+			<td>{{$support->status}}</td>
+			<td>{{$support->body}}</td>
+		</tr>
+	</tbody>
+</table>
+
+<?=blablabla?> (PopUp Altert)
+
+Console.log($id) = dd($id) "cout"
+
+<text>{{ $support->body ?? old('body') }}</text // old('body') => mantem o q foi escrito no input, mesmo q de erro
+
+DTO => especifica o tipo de dado especificado, melhora a comunicação entre Request e Response com o banco

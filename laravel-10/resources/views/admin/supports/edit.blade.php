@@ -7,8 +7,8 @@
 @endsection
 
 @section('content')
-<form action="{{ route('supports.update', $support->id) }}" method="POST">
-    @method('PUT')
+<form action="{{ route('supports.update', $support->id) }}" method="POST"> {{-- por padrão a routa só aceita POST --}}
+    @method('PUT') {{-- especifica o CRUD q será feito --}}
     @include('admin.supports.partials.form', [
         'support' => $support
     ])

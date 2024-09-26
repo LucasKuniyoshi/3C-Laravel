@@ -13,11 +13,11 @@ class CreateSupportDTO
         public string $body,
     ) {}
 
-    public static function makeFromRequest(StoreUpdateSupport $request): self
+    public static function makeFromRequest(StoreUpdateSupport $request): self //self => objeto da prórpia classe
     {
         return new self(
             $request->subject,
-            SupportStatus::A,
+            SupportStatus::A, // "a"
             $request->body
         );
     }

@@ -16,6 +16,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
+        //bind =>onde tiver uma classe abstrata(interface=>Support), eu vou injetar uma classe concreta
         $this->app->bind(
             SupportRepositoryInterface::class,
             SupportEloquentORM::class

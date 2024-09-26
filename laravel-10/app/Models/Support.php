@@ -15,6 +15,7 @@ class Support extends Model
 {
     use HasFactory, HasUuids;
 
+    //DETERMINA QUAIS COLUNAS PODEM SER PREENCHIDAS
     protected $fillable = [
         'subject',
         'body',

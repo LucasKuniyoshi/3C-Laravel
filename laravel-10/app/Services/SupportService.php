@@ -33,15 +33,28 @@ class SupportService
         return $this->repository->getAll($filter);
     }
 
+    //stdClass => (classe Genérica) tipo especifico não pré-determinado pelo laravel, como é id vai vir um "X8xXNoCHIA78a"
+    //primeiro findOne pode retornar null da API
+    //null => caso passe um id inválido
     public function findOne(string $id): stdClass|null
     {
         return $this->repository->findOne($id);
     }
 
+    // public function new(string $subject, string $status, string $body): stdClass
+    // {
+    //     return $this->repository->new($subject, $status, $body);
+    // }
+
     public function new(CreateSupportDTO $dto): stdClass
     {
         return $this->repository->new($dto);
     }
+
+    // public function update(string $id, string $subject, string $status, string $body): stdClass|null
+    // {
+    //     return $this->repository->update($id, $subject, $status, $body);
+    // }
 
     public function update(UpdateSupportDTO $dto): stdClass|null
     {

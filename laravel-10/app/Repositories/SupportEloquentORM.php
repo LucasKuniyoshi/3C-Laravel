@@ -40,6 +40,8 @@ class SupportEloquentORM implements SupportRepositoryInterface
 
     public function getAll(string $filter = null): array
     {
+        //SELECT * FROM supports WHERE...
+        // QUERY = CONSULTA
         return $this->model
             ->with('user')
             ->where(function ($query) use ($filter) {
@@ -48,7 +50,7 @@ class SupportEloquentORM implements SupportRepositoryInterface
                     $query->orWhere('body', 'like', "%{$filter}%");
                 }
             })
-            ->get()
+            ->get() //->all() => se n tivesse dado uma query acima (consulta)
             ->toArray();
     }
 
@@ -59,12 +61,12 @@ class SupportEloquentORM implements SupportRepositoryInterface
             return null;
         }
 
-        return (object) $support->toArray();
+        return (object) $support->toArray(); //converte esse array para objeto, sendo este objeto do tipo stdClass
     }
 
     public function delete(string $id): void
     {
-        $support = $this->model->findOrFail($id);
+        $support = $this->model->findOrFail($id); //ENCONTRA OU FALHA
 
         if (Gate::denies('owner', $support->user->id)) {
             abort(403, 'Not Authorized');
