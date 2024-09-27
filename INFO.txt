@@ -29,6 +29,8 @@ MANAGER ENVIRONMENT
 }
 
 ========================================
+***************************************
+========================================
 NO PROJETO LARAVEL-10: (curso do youtube)
 
 Abrir o docker desktop
@@ -40,6 +42,9 @@ composer install
 php artisan key:generate (CRIA AS CHAVES DE CRIPTOGRAFIA NO .ENV, TOKENS)
 
 php artisan make:request StoreUpdateSupportRequest (CRIA UM CONTROLLER PARA TER TODAS AS SUAS VALIDAÇÕES CENTRALIZADAS, "n precisa mais usar Request $request")
+
+php artisan make:component --help
+php artisan make:component Alert --view => cria 
 
 C:\xampp\htdocs\curso_php\API_Laravel\laravel-10>rm -rf .git
 rm -rf .git => PERMITE Q OS DADOS DO BANCO N SEJAM PERDIDOS AO DESLIGAR OU REINICIAR A MÁQUINA
@@ -80,3 +85,9 @@ Console.log($id) = dd($id) "cout"
 <text>{{ $support->body ?? old('body') }}</text // old('body') => mantem o q foi escrito no input, mesmo q de erro
 
 DTO => especifica o tipo de dado especificado, melhora a comunicação entre Request e Response com o banco
+
+VIEWS => FORM.BLADE.PHP
+<input value="{{ $support->subject ?? old('subject') }}>
+{{-- value="{{ $support->subject ?? old('subject') }}" No input, se já tiver dados cadastrados retorna eles (edit); se n retorna nada e mantém o q o usuário estava escrevendo (create) --}}
+
+São intermediadores, responsáveis por interligar as ações executadas na view e concilia-las com os dados presentes na model. Normalmente é aqui que as principais funções da aplicação se localizam, pegando os dados da model e manipulando-os a sua maneira. 

@@ -6,6 +6,8 @@
 <h1 class="text-lg text-black-500">Dúvida {{ $support->subject }}</h1>
 @endsection
 
+{{-- <x-alert/> //Alert component--}}
+
 @section('content')
 <form action="{{ route('supports.update', $support->id) }}" method="POST"> {{-- por padrão a routa só aceita POST --}}
     @method('PUT') {{-- especifica o CRUD q será feito --}}

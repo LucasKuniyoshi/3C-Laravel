@@ -18,7 +18,9 @@ class SupportController extends Controller
 
     public function index(Request $request)
     {
-        // $support = $this->service->getAll($request->filter);
+        // $supports = $this->service->getAll($request->filter);
+        // $supports = Support::paginate(); PAGINAÇÃO PRA PROJETOS SIMPLES
+        //{{ $supports->links() }} PAGINAÇÃO PRA PROJETOS SIMPLES
         $supports = $this->service->paginate(
             page: $request->get('page', 1),
             totalPerPage: $request->get('per_page', 6),

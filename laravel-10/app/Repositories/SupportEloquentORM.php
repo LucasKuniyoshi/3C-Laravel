@@ -33,8 +33,10 @@ class SupportEloquentORM implements SupportRepositoryInterface
                     $query->orWhere('body', 'like', "%{$filter}%");
                 }
             })
-            ->paginate($totalPerPage, ['*'], 'page', $page);
+            //já pega o $page por parametro, n precisa definir
+            ->paginate($totalPerPage, ['*'], 'page', $page); //"*" => select all from columns, 'page' => nome do parametro, $page => qual pagina q é
 
+        // dd($result->toArray()); MOSTRA TODOS OS RESULTADOS NUM ARRAY
         return new PaginationPresenter($result);
     }
 
