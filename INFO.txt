@@ -17,6 +17,8 @@ php artisan make:model Testamento --migration (CRIA UMA NOVA MODEL "TESTAMENTO")
 
 php artisan migrate (NO Q A ESTRUTURA DAS TABELAS SÃO CRIADAS AQUI, ESSE COMANDO ENVIA SUAS DEFINIÇÕES PARA O BANCO SQLyog) 
 
+php artisan migrate:fresh (RESET TODAS AS TABELAS)
+
 php artisan make:controller TestamentoController --api (CRIA A CONTROLER TestamentoController NA API)
 
 FRAMEWORK - estrutura de código pronto, q vc pode trabalhar em cima dela
@@ -91,3 +93,8 @@ VIEWS => FORM.BLADE.PHP
 {{-- value="{{ $support->subject ?? old('subject') }}" No input, se já tiver dados cadastrados retorna eles (edit); se n retorna nada e mantém o q o usuário estava escrevendo (create) --}}
 
 São intermediadores, responsáveis por interligar as ações executadas na view e concilia-las com os dados presentes na model. Normalmente é aqui que as principais funções da aplicação se localizam, pegando os dados da model e manipulando-os a sua maneira. 
+
+==================================
+PROJETO PONTOS TURISTICOS:
+localhost:8989 (LARAVEL)
+localhost:8097 (BD)
