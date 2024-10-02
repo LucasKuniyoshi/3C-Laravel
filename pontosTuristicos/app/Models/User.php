@@ -11,6 +11,8 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable;
 
+    // protected $table = 'users'; //Define a tabela q será utilizada; Laravel já faz automatico
+
     /**
      * The attributes that are mass assignable.
      *
