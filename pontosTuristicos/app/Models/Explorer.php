@@ -11,6 +11,8 @@ class Explorer extends Model
 
     protected $fillable = [
         'name',
-        'idade'
+        'idade',
+        'latitude',
+        'longitude'
     ];
 }

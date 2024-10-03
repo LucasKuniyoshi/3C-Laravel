@@ -13,11 +13,13 @@
             Insira os dados do Explorador:
         </div>
 
-        <form action="{{ route('explorers.show') }}" method="POST">
+        <form action="{{ route('explorers.store') }}" method="POST">
             {{-- <input type="hidden" value="{{ csrf_token() }}" name="_token"> --}}
             @csrf() {{-- CRIA O TOKEN AUTOMÁTICO --}}
             <input type="text" placeholder="Nome do explorador" name="name">
-            <textarea name="idade" cols="30" rows="5" placeholder="Idade"></textarea>
+            <input type="text" placeholder="Idade" name="idade">
+            <textarea name="latitude" cols="15" rows="2" placeholder="Latitude"></textarea>
+            <textarea name="longitude" cols="15" rows="2" placeholder="Longitude"></textarea>
             <button type="submit">Enviar</button>
         </form>
     </section>

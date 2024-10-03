@@ -9,6 +9,7 @@ class Support extends Model
 {
     use HasFactory;
 
+    //QUAIS CAMPOS PODEM SER INSERIDOS
     protected $fillable = [
         'subject',
         'body',

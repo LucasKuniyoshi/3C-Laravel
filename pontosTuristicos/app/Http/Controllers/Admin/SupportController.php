@@ -31,4 +31,37 @@ class SupportController extends Controller
         // dd($support);
         return redirect()->route('supports.index');
     }
+
+    public function show(string|int $id){
+        //SE O ID UTILIZADO N EXISTIR
+        //No lugar do find => where('id',$id)->first
+        //where campo 'id' = parametro $id
+
+        //Pode ser também => where('id','!=', $id)->first
+        if(!$support = Support::find($id)){
+            return back();
+        };
+        return view('admin/supports/show', compact('support'));
+    }
+
+    public function edit(Support $support, string|int $id){
+        //FAZ A MESMA COISA Q O FIND
+        if(!$support = $support->where('id', $id)->first()){
+            return back();
+        };
+        return view('admin/supports/edit', compact('support'));
+    }
+
+    public function update(Request $request, Support $support, string $id){
+        if(!$support = $support->find($id)){
+            return back();
+        };
+     /* $support->subject = $request->subject;
+        $support->body = $request->body;
+        $support->save(); */ //FAZ A MESMA COISA Q O UPDATE ABAIXO
+        $support->update($request->only([
+            'subject', 'body'
+        ]));
+        return redirect()->route('supports.index');
+    }
 }

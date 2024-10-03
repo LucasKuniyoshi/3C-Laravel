@@ -9,19 +9,24 @@
 
 <h1>Principais Exploradores</h1>
 
-<a href="{{ route('explorers') }}">Adicionar explorador</a>
+<a href="{{ route('explorers.create') }}">Adicionar explorador</a>
 
 <table>
     <thead>
         <th>Nome</th>
-        <th>idade</th>
+        {{-- <th>idade</th> --}}
     </thead>
     <tbody>
         @foreach($explorers as $explorer)
             <tr>
                 <td>{{ $explorer->name }}</td>
-                <td>{{ $explorer->idade }}</td>
-                <td>></td>
+                {{-- <td>{{ $explorer->idade }}</td>
+                <td>{{ $explorer->latitude }}</td>
+                <td>{{ $explorer->longitude }}</td> --}}
+                <td>
+                    <a href="{{ route('explorers.details', $explorer->id) }}">Ver Detalhes</a>
+                    <a href="{{ route('explorers.edit', $explorer->id) }}">Editar</a>
+                </td>
             </tr>
         @endforeach
     </tbody>
