@@ -7,3 +7,9 @@
     <li>Latitude: {{ $explorer->latitude }}</li>
     <li>Longitude: {{ $explorer->longitude }}</li>
 </ul>
+
+<form action="{{ route('explorers.destroy', $explorer->id) }}" method="POST">
+    @csrf()
+    @method('DELETE')
+    <button type="submit">Deletar Explorador</button>
+</form>
