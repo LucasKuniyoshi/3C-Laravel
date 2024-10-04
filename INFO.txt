@@ -98,3 +98,5 @@ São intermediadores, responsáveis por interligar as ações executadas na view
 PROJETO PONTOS TURISTICOS:
 localhost:8989 (LARAVEL)
 localhost:8097 (BD)
+
+FORM => SE UTILIZA <form> SEMPRE Q TIVER Q FAZER UM SUBMIT EM ALGO, FORMULÁRIO NÉ GARAI

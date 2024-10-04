@@ -10,6 +10,7 @@ Route::get('/', function () {
 
 Route::get('/contato', [SiteController::class, 'contact']);
 
+Route::delete('/supports/{id}', [SupportController::class, 'destroy'])->name('supports.destroy');
 Route::put('/supports/{id}', [SupportController::class, 'update'])->name('supports.update');
 Route::get('/supports/{id}/edit', [SupportController::class, 'edit'])->name('supports.edit');
 Route::get('/supports/create', [SupportController::class, 'create'])->name('supports.create');
@@ -17,6 +18,7 @@ Route::get('/supports/{id}', [SupportController::class, 'show'])->name('supports
 Route::post('/supports', [SupportController::class, 'store'])->name('supports.store');
 Route::get('/supports', [SupportController::class, 'index'])->name('supports.index');
 
+Route::delete('/explorers/{id}', [SiteController::class, 'destroy'])->name('explorers.destroy');
 Route::put('/explorers/{id}', [SiteController::class, 'update'])->name('explorers.update');
 Route::get('/explorers/{id}/edit', [SiteController::class, 'edit'])->name('explorers.edit');
 Route::get('/explorers/create', [SiteController::class, 'create'])->name('explorers.create');

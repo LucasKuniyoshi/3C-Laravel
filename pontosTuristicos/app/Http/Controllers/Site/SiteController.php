@@ -1,6 +1,7 @@
 <?php
     namespace App\Http\Controllers\Site;
 
+use App\Http\Requests\StoreUpdateExplorer;
 use App\Models\Explorer;
 use Illuminate\Http\Request;
 
@@ -26,11 +27,11 @@ use Illuminate\Http\Request;
             return view('site/explorer');
         }
 
-        public function store(Request $request, Explorer $explorer){
+        public function store(StoreUpdateExplorer $request, Explorer $explorer){
             // dd($request->only(['subject', 'body']));
             // dd($request->get(['subject', 'body']));
             $data = $request->all();
-            //$data['status'] = 'a';
+            $data['item_id'] = '1';
 
             $explorer = $explorer->create($data);
             // dd($explorer);
@@ -56,13 +57,35 @@ use Illuminate\Http\Request;
             return view('site/edit', compact('explorer'));
         }
 
-        public function update(Request $request, Explorer $explorer, string $id){
+        // public function update(Request $request, Explorer $explorer, string $id){
+        //     if(!$explorer = $explorer->find($id)){
+        //         return back();
+        //     };
+        //     $explorer->update($request->only([
+        //         'latitude', 'longitude'
+        //     ]));
+        //     return redirect()->route('explorers.show');
+        // }
+        public function update(StoreUpdateExplorer $request, Explorer $explorer, string $id){
             if(!$explorer = $explorer->find($id)){
                 return back();
             };
-            $explorer->update($request->only([
-                'latitude', 'longitude'
-            ]));
+         /* $support->subject = $request->subject;
+            $support->body = $request->body;
+            $support->save(); */ //FAZ A MESMA COISA Q O UPDATE ABAIXO
+            $explorer->update($request->validated());
+            return redirect()->route('explorers.show');
+        }
+
+        public function destroy(string|int $id){
+            // if(!$support = Support::find($id)->delete()){
+            //     return back();
+            // };
+            if(!$explorer = Explorer::find($id)){
+                return back();
+            }
+            $explorer->delete();
+
             return redirect()->route('explorers.show');
         }
     }

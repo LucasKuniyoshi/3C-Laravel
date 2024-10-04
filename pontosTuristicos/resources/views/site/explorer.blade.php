@@ -1,4 +1,11 @@
 <!DOCTYPE html>
+
+@if($errors->any())
+    @foreach($errors->all() as $error)
+        {{ $error }}
+    @endforeach
+@endif
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
